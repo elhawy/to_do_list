@@ -67,7 +67,6 @@ class ItemService implements ItemServiceInterface
             ->first();
         if (!empty($items)) {
             throw new MultipleInProgressItemsException();
-
         }
         return true;
     }
