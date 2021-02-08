@@ -4,7 +4,8 @@ services:
     build:
       context: '.'
       args:
-        uid: ${UID}
+        uid: 1000
+        user: todouser
     container_name: todo-list-app
     ports:
       - 8000:80

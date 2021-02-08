@@ -19,10 +19,14 @@ Copy `.env.example` to `.env`
 ```
 $ cp .env.example .env 
 ```
+Run 
+```
+$ composer install
+$ php artisan key:generate
+```
 Database
 
 create your database and run the following command.
-```
 $ php artisan migrate
 $ php artisan seed
 ```

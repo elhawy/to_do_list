@@ -16,6 +16,11 @@ class ItemController extends Controller
         $this->itemService = $itemService;
     }
 
+    /**
+     * @param ListItemsRequest $request
+     * list items from databse
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function index(ListItemsRequest $request)
     {
         $requestData = $request->validated();
@@ -23,12 +28,22 @@ class ItemController extends Controller
         return response()->json(["items" => $items], 200);
     }
 
+    /**
+     * @param ExportReportRequest $request
+     * export items in format csv file
+     * @return mixed stream response file
+     */
     public function export(ExportReportRequest $request)
     {
         $requestData = $request->validated();
         return $this->itemService->exportReport($requestData);
     }
 
+    /**
+     * @param $itemId
+     * start tracking for item move it to in progress
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function startTracking($itemId)
     {
         $isStarted = $this->itemService->startTracking($itemId);
