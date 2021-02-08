@@ -23,7 +23,7 @@ class ItemRepository extends BaseRepository implements ItemRepositoryInterface
         }
 
         if (!empty($requestOptions['to'])) {
-            $this->model = $this->model->where('created_at', "<=", $requestOptions['to']);
+            $this->model = $this->model->whereDate('created_at', "<=", $requestOptions['to']);
         }
         return $this->model->with('category')->get();
     }
